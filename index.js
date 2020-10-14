@@ -52,17 +52,25 @@ function promptUser() {
 }
 
 function generateReadme(answers) {
-    return `This is a test ${name} it continues... ${answers.github}`;
+    return `# ${answers.title} 
+    \n **Created by ${answers.name}**
+    \n ## Description
+    \n ${answers.description}
+    \n ## Installation Instructions
+    \n ${answers.usage}
+    \n ## Usage Guidelines
+    \n ${answers.usage}
+    \n`;
 }
 
 promptUser()
     .then(function (answers) {
         const html = generateReadme(answers);
 
-        return writeFileAsync("README.md", "utf8");
+        return writeFileAsync("README.md", generateReadme(answers));
     })
     .then(function () {
-        console.log("Successfully wrote to index.html");
+        console.log("Successfully wrote to ReadMe.md");
     })
     .catch(function (err) {
         console.log(err);
