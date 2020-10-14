@@ -52,7 +52,7 @@ function promptUser() {
 }
 
 function generateReadme(answers) {
-    return "This is a test " + name + " it continues... " + answers.github;
+    return `This is a test ${name} it continues... ${answers.github}`;
 }
 
 promptUser()
