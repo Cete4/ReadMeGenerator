@@ -1,3 +1,5 @@
+
+
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
@@ -35,13 +37,18 @@ function promptUser() {
         {
             type: "input",
             name: "contribution",
-            message: "What are the contribution instructions?",
+            message: "What are the contribution guidelinest?",
         },
 
         {
             type: "input",
             name: "github",
             message: "Enter your GitHub Username"
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "Enter your email for contact form."
         },
         {
             type: "input",
@@ -54,13 +61,20 @@ function promptUser() {
 function generateReadme(answers) {
     return `# ${answers.title} 
     \n **Created by ${answers.name}**
+    \n ## Table of Contents
+    \n ----
+    \n [Description](#description)
+    \n [Installation](#installation)
+    \n [Usage](#usage)
+    \n [Questions](#questions)
     \n ## Description
     \n ${answers.description}
     \n ## Installation Instructions
     \n ${answers.usage}
     \n ## Usage Guidelines
     \n ${answers.usage}
-    \n`;
+    \n ## Questions
+    \n Email me at ${answers.email}`;
 }
 
 promptUser()
